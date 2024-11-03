@@ -1,0 +1,74 @@
+# This is nearly identical to the builds on PRs, but doesn't specify
+# `--version` to builder so each addon gets it's own version.
+name: Create new addon release
+
+on:
+  push:
+    branches:
+      - next
+    tags:
+      - '*'
+  schedule:
+    # A random daily time, as Actions doesn't have a suggestion for running
+    # daily without causing job spikes.
+    - cron:  '16 8 * * *'
+
+env:
+  REGISTRY: ghcr.io
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build addons
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        arch: [amd64]
+        addon: [bosmon]
+
+    steps:
+    - name: Checkout the repository
+      if: github.event_name != 'schedule'
+      uses: actions/checkout@v2
+
+    - name: Checkout the next branch
+      if: github.event_name == 'schedule'
+      uses: actions/checkout@v2
+      with:
+        ref: next
+
+    - name: Inject slug/short variables
+      uses: rlespinasse/github-slug-action@v4
+ 
+    - name: Login to Packages Container registry
+      uses: docker/login-action@v1
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Build ${{ matrix.addon }} ${{ matrix.arch }} image
+      uses: home-assistant/builder@master
+      if: github.event.pull_request.head.repo.full_name != github.repository && github.event_name != 'schedule'
+      with:
+        args: |
+          --${{ matrix.arch }} \
+          --docker-hub $REGISTRY \
+          --image ${{ github.repository}}-${{ matrix.addon }}-{arch} \
+          --no-latest \
+          --target ${{ matrix.addon }}
+
+    - name: Build nightly ${{ matrix.addon }} ${{ matrix.arch }} image
+      uses: home-assistant/builder@master
+      if: github.event.pull_request.head.repo.full_name != github.repository && github.event_name == 'schedule'
+      with:
+        args: |
+          --${{ matrix.arch }} \
+          --docker-hub $REGISTRY \
+          --image ${{ github.repository}}-${{ matrix.addon }}-{arch} \
+          --no-latest \
+          --version next \
+          --target ${{ matrix.addon }}
