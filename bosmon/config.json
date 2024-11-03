@@ -1,0 +1,13 @@
+{
+    "name": "bosmon",
+    "image": "ghcr.io/timniklas/hass-addons-bosmon-{arch}",
+    "version": "1.0",
+    "slug": "bosmon",
+    "description": "BosMon ist ein innovatives Programm zum Dekodieren von ZVEI, FMS und Pocsag Telegrammen.",
+    "url": "https://github.com/hass-addons",
+    "arch": ["amd64"],
+    "startup": "application",
+    "ingress": true,
+    "ingress_port": 8080,
+    "ingress_stream": true
+  }
