@@ -78,4 +78,4 @@ RUN chmod +x /root/.vnc/xstartup
 
 ENTRYPOINT ["/app/start-vnc.sh"]
 
-HEALTHCHECK CMD curl --fail http://127.0.0.1:8099 || exit 1
+HEALTHCHECK CMD pgrep -f "xstartup" || exit 1
