@@ -5,7 +5,7 @@ description: BosMon ist ein innovatives Programm zum Dekodieren von ZVEI, FMS un
 url: https://github.com/timniklas/addon-bosmon
 image: ghcr.io/timniklas/addon-bosmon
 ingress: true
-ingress_stream: false
+ingress_stream: true
 startup: services
 panel_icon: mdi:alarm-light
 arch:
@@ -16,3 +16,5 @@ options:
 schema:
   key_name: str
   key_serial: str
+ports:
+  8099/tcp: null

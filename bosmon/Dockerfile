@@ -78,3 +78,5 @@ COPY startup.sh /root/.vnc/xstartup
 RUN chmod +x /root/.vnc/xstartup
 
 ENTRYPOINT ["/app/start-vnc.sh"]
+
+HEALTHCHECK CMD curl --fail http://127.0.0.1:8099 || exit 1
