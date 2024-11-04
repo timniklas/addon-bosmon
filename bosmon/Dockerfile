@@ -9,40 +9,38 @@ ENV USER=root
 # Updates packages
 RUN apt-get update
 
-# Install XFCE, VNC server, dbus-x11, and xfonts-base, wget
-RUN apt-get install -y --no-install-recommends \
+# Install XFCE, VNC server, dbus-x11, and xfonts-base, wget, Xvfb, Xte
+RUN apt-get install -y \
     xfce4 \
     xfce4-goodies \
-    tightvncserver \
+    tigervnc-standalone-server \
+    tigervnc-xorg-extension \
     dbus-x11 \
     xfonts-base \
-    wget
+    wget \
+    xvfb \
+    xautomation
 
 # update ca certificates
 RUN apt-get install ca-certificates -y
 
-# Add wine repo
+# Install Wine
 RUN dpkg --add-architecture i386 && mkdir -pm755 /etc/apt/keyrings \
     && wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key \
     && wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources \
-    && apt-get update
+    && apt-get update \
+    && apt-get install --install-recommends winehq-stable -y
 
-# Install Wine, Winetricks, Mono
-RUN apt-get install --install-recommends winehq-stable winetricks -y
-
-# Install Xvfb, Xte
-RUN apt-get install xvfb xautomation -y
-
-# Install .NET 4.7.2    
+# Install .NET
 RUN wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks && chmod +x winetricks
-RUN WINEARCH=win32 ./winetricks -q dotnet472
+RUN WINEARCH=win32 ./winetricks -q dotnet40
 
 # Install webview
 RUN wget -O webview_setup.exe https://go.microsoft.com/fwlink/p/?LinkId=2124703
 RUN xvfb-run wine webview_setup.exe && rm webview_setup.exe
 
 # Install novnc
-RUN apt-get -y install novnc python3-websockify tigervnc-standalone-server tigervnc-xorg-extension
+RUN apt-get -y install novnc python3-websockify
 RUN cp /usr/share/novnc/vnc_auto.html /usr/share/novnc/index.html
 
 # clean up installers
