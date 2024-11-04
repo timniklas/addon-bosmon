@@ -1,4 +1,4 @@
-# rtl_433 Home Assistant add-ons
+# BosMon Home Assistant add-on
 
 This is a collection of Home Assistant add-ons.
 
