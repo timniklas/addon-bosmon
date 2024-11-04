@@ -6,6 +6,12 @@ url: https://github.com/timniklas/addon-bosmon
 image: ghcr.io/timniklas/addon-bosmon
 ingress: true
 ingress_stream: true
+startup: services
+init: false
+uart: true
+hassio_api: true
+hassio_role: manager
+homeassistant_api: true
 panel_icon: mdi:alarm-light
 arch:
 - amd64
