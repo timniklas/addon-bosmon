@@ -60,7 +60,7 @@ RUN touch /root/.Xauthority
 ENV RESOLUTION=1920x1080
 
 # Expose noVNC port
-EXPOSE 7281
+EXPOSE 8099
 
 # Set the working directory in the container
 WORKDIR /app
@@ -79,9 +79,5 @@ COPY start-vnc.sh start-vnc.sh
 RUN chmod +x start-vnc.sh
 COPY startup.sh /root/.vnc/xstartup
 RUN chmod +x /root/.vnc/xstartup
-
-#DEBUG
-ENV KEY_NAME="Tim Tester2"
-ENV KEY_SERIAL="YA1QWI7JBBBEE572BPDC6RTAM"
 
 ENTRYPOINT ["/app/start-vnc.sh"]
