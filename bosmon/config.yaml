@@ -12,8 +12,8 @@ panel_icon: mdi:alarm-light
 arch:
 - amd64
 options:
-  key_name: ENTER NAME HERE
-  key_serial: ENTER SERIAL HERE
+  key_name: Tim Tester2
+  key_serial: YA1QWI7JBBBEE572BPDC6RTAM
 schema:
   key_name: str
   key_serial: str
