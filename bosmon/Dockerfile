@@ -59,9 +59,6 @@ RUN touch /root/.Xauthority
 # Set display resolution (change as needed)
 ENV RESOLUTION=1920x1080
 
-# Expose noVNC port
-EXPOSE 8099
-
 # Set the working directory in the container
 WORKDIR /app
 
