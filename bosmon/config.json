@@ -1,7 +1,7 @@
 {
     "name": "bosmon",
     "image": "ghcr.io/timniklas/addon-bosmon",
-    "version": "latest",
+    "version": "v0.1",
     "slug": "bosmon",
     "description": "BosMon ist ein innovatives Programm zum Dekodieren von ZVEI, FMS und Pocsag Telegrammen.",
     "url": "https://github.com/addon-bosmon",
