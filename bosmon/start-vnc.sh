@@ -25,4 +25,8 @@ while pgrep -f "xstartup" > /dev/null; do
 
     # Set optional delay
     sleep .1
+
+    # DEBUG
+    sleep 1
+    curl --fail http://127.0.0.1:8099
 done
