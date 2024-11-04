@@ -10,7 +10,7 @@ vncserver -geometry $RESOLUTION -SecurityTypes None &
 echo "VNC server started at $RESOLUTION! ^-^"
 
 echo "Starting novnc..."
-websockify -D --web=/usr/share/novnc/ 80 localhost:5901
+websockify -D --web=/usr/share/novnc/ 7281 localhost:5901
 
 echo "Waiting for BosMon to start..."
 # Wait for the notification daemon to finish launching
