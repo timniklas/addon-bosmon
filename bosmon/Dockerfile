@@ -18,6 +18,7 @@ RUN apt-get install -y \
     dbus-x11 \
     xfonts-base \
     wget \
+    curl \
     xvfb \
     xautomation
 
