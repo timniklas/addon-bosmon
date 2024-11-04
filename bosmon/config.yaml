@@ -6,6 +6,7 @@ url: https://github.com/timniklas/addon-bosmon
 ingress: true
 ingress_port: 7281
 ingress_stream: true
+host_network: true
 panel_icon: mdi:alarm-light
 arch:
 - amd64
