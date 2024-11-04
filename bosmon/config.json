@@ -1,5 +1,5 @@
 {
-    "name": "bosmon",
+    "name": "BosMon",
     "image": "ghcr.io/timniklas/addon-bosmon",
     "version": "v0.2",
     "slug": "bosmon",
