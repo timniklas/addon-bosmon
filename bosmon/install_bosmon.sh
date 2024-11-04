@@ -1,5 +1,8 @@
 !/bin/bash
 
+KEY_NAME=$(bashio::config 'key_name')
+KEY_SERIAL=$(bashio::config 'key_serial')
+
 # Wait for the notification daemon to finish launching
 while ! pgrep -f "Activate.exe" > /dev/null; do
 
