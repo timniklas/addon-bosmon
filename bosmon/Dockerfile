@@ -1,5 +1,5 @@
-# Use an official Ubuntu base image
-FROM ubuntu:22.04
+# Use an home assitant Ubuntu base image
+FROM ghcr.io/home-assistant/amd64-base-ubuntu:20.04
 
 # Avoid warnings by switching to noninteractive for the build process
 ENV DEBIAN_FRONTEND=noninteractive
