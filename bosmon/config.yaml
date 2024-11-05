@@ -16,6 +16,3 @@ options:
 schema:
   key_name: str
   key_serial: str
-ports:
-  8099/tcp: null
-  5901/tcp: null
