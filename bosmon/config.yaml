@@ -18,3 +18,4 @@ schema:
   key_serial: str
 ports:
   8099/tcp: null
+  5901/tcp: null
