@@ -1,5 +1,5 @@
 # Use an official Ubuntu base image
-FROM buntu:22.04
+FROM ubuntu:22.04
 
 # Avoid warnings by switching to noninteractive for the build process
 ENV DEBIAN_FRONTEND=noninteractive
