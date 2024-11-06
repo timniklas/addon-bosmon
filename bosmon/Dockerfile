@@ -44,7 +44,7 @@ RUN xvfb-run wine webview_setup.exe && rm webview_setup.exe
 
 # Install novnc
 RUN apt-get -y install novnc python3-websockify
-COPY index.html /usr/share/novnc/index.html
+RUN cp /usr/share/novnc/vnc.html /usr/share/novnc/index.html
 
 # clean up installers
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
