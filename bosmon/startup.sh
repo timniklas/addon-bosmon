@@ -2,6 +2,14 @@
 
 x-window-manager &
 
+# Link persistent storage
+mkdir -p /data/program
+mkdir -p /root/.wine/drive_c/users/root/AppData/Roaming/BosMon
+mkdir -p /data/appdata
+mkdir -p /root/.wine/drive_c/Program Files/BosMon
+ln -s /root/.wine/drive_c/users/root/AppData/Roaming/BosMon /data/program
+ln -s /root/.wine/drive_c/Program Files/BosMon /data/appdata
+
 # Install BosMon
 if [ ! -f "/root/.wine/drive_c/Program\ Files/BosMon/BosMon.exe" ]; then
     ./install_bosmon.sh &
