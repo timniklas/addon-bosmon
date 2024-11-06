@@ -3,11 +3,10 @@
 x-window-manager &
 
 # Install BosMon
+./activate_bosmon.sh &
 if [ ! -f /root/.wine/drive_c/Program\ Files/BosMon/BosMon.exe ]; then
-    ./install_bosmon.sh &
     wine bosmon_setup.exe /silent /COMPONENTS=bosmon
 else
-    ./install_bosmon.sh &
     wine /root/.wine/drive_c/Program\ Files/BosMon/Activate.exe
 fi
 
