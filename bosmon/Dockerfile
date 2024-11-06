@@ -9,7 +9,7 @@ ENV USER=root
 # Updates packages
 RUN apt-get update
 
-# Install XFCE, VNC server, dbus-x11, and xfonts-base, wget, Xvfb, Xte
+# Install XFCE, VNC server, dbus-x11, and xfonts-base, wget, Xvfb, Xte, jq
 RUN apt-get install -y \
     xfce4 \
     xfce4-goodies \
@@ -20,7 +20,8 @@ RUN apt-get install -y \
     wget \
     curl \
     xvfb \
-    xautomation
+    xautomation \
+    jq
 
 # update ca certificates
 RUN apt-get install ca-certificates -y
@@ -43,12 +44,6 @@ RUN xvfb-run wine webview_setup.exe && rm webview_setup.exe
 # Install novnc
 RUN apt-get -y install novnc python3-websockify
 COPY index.html /usr/share/novnc/index.html
-
-# Install bashio
-RUN wget -O /tmp/bashio.tar.gz https://github.com/hassio-addons/bashio/archive/refs/tags/v0.16.2.tar.gz \
-    && mkdir /tmp/bashio && tar zxvf /tmp/bashio.tar.gz --strip 1 -C /tmp/bashio \
-    && mv /tmp/bashio/lib /usr/lib/bashio \
-    && ln -s /usr/lib/bashio/bashio /usr/bin/bashio
 
 # clean up installers
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
