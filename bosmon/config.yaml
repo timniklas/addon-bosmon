@@ -1,5 +1,5 @@
 name: BosMon
-version: v1.1.1
+version: v1.1.2
 slug: bosmon
 description: BosMon ist ein innovatives Programm zum Dekodieren von ZVEI, FMS und Pocsag Telegrammen.
 url: https://github.com/timniklas/addon-bosmon
@@ -11,11 +11,11 @@ panel_icon: mdi:alarm-light
 arch:
 - amd64
 options:
-  key_name: Tim Tester2
-  key_serial: YA1QWI7JBBBEE572BPDC6RTAM
+  display_resolution: 1280x720
 schema:
   key_name: str
   key_serial: str
+  display_resolution: str
 ports:
   80/tcp: null
 ports_description:
