@@ -1,5 +1,5 @@
-# Use an home assitant Ubuntu base image
-FROM ghcr.io/home-assistant/amd64-base-ubuntu:20.04
+# Use an official Ubuntu base image
+FROM buntu:22.04
 
 # Avoid warnings by switching to noninteractive for the build process
 ENV DEBIAN_FRONTEND=noninteractive
@@ -28,7 +28,7 @@ RUN apt-get install ca-certificates -y
 # Install Wine
 RUN dpkg --add-architecture i386 && mkdir -pm755 /etc/apt/keyrings \
     && wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key \
-    && wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/focal/winehq-focal.sources \
+    && wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources \
     && apt-get update \
     && apt-get install --install-recommends winehq-stable -y
 
