@@ -3,6 +3,7 @@
 CONFIG_PATH=/data/options.json
 KEY_NAME=$(jq --raw-output '.key_name // empty' $CONFIG_PATH)
 KEY_SERIAL=$(jq --raw-output '.key_serial // empty' $CONFIG_PATH)
+RESOLUTION=$(jq --raw-output '.display_resolution // empty' $CONFIG_PATH)
 
 echo 'Updating /etc/hosts file...'
 HOSTNAME=$(hostname)
