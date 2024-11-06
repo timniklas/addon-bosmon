@@ -58,7 +58,7 @@ RUN mkdir /root/.vnc \
 RUN touch /root/.Xauthority
 
 # Set display resolution (change as needed)
-ENV RESOLUTION=1920x1080
+ENV RESOLUTION=1280x720
 
 # Set the working directory in the container
 WORKDIR /app
