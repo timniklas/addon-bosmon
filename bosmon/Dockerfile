@@ -35,7 +35,7 @@ RUN dpkg --add-architecture i386 && mkdir -pm755 /etc/apt/keyrings \
 
 # Install .NET
 RUN wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks && chmod +x winetricks
-RUN WINEARCH=win32 ./winetricks -q dotnet40
+RUN WINEARCH=win32 ./winetricks -q dotnet472
 
 # Install webview
 RUN wget -O webview_setup.exe https://go.microsoft.com/fwlink/p/?LinkId=2124703
