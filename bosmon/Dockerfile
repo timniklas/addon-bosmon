@@ -63,10 +63,6 @@ ENV RESOLUTION=1280x720
 # Set the working directory in the container
 WORKDIR /app
 
-# Define BosMon volume
-VOLUME ["/root/.wine/drive_c/users/root/AppData/Roaming/BosMon"]
-VOLUME ["/root/.wine/drive_c/Program Files/BosMon"]
-
 # Copy Bosmon
 RUN wget -O bosmon_setup.exe https://www.bosmon.de/files/bosmon_setup_2023_11.exe
 COPY install_bosmon.sh install_bosmon.sh
