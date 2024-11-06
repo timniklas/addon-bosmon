@@ -44,6 +44,12 @@ RUN xvfb-run wine webview_setup.exe && rm webview_setup.exe
 RUN apt-get -y install novnc python3-websockify
 COPY index.html /usr/share/novnc/index.html
 
+# Install bashio
+RUN wget -O /tmp/bashio.tar.gz https://github.com/hassio-addons/bashio/archive/refs/tags/v0.16.2.tar.gz \
+    && tar -xvfz /tmp/bashio.tar.gz \
+    && mv /tmp/bashio/lib /usr/lib/bashio \
+    && ln -s /usr/lib/bashio/bashio /usr/bin/bashio
+
 # clean up installers
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
