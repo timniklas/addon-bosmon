@@ -18,5 +18,7 @@ schema:
   display_resolution: "match([0-9]+x[0-9]+)"
 ports:
   80/tcp: null
+  8099/tcp: null
 ports_description:
   80/tcp: Webserver (optional)
+  8099/tcp: NoVNC without authentication (danger!)
