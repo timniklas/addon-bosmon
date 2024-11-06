@@ -74,4 +74,7 @@ RUN chmod +x start-vnc.sh
 COPY startup.sh /root/.vnc/xstartup
 RUN chmod +x /root/.vnc/xstartup
 
+HEALTHCHECK --interval=5s \
+  CMD pgrep -f "BosMon.exe" || exit 1
+
 ENTRYPOINT ["/app/start-vnc.sh"]
