@@ -1,5 +1,5 @@
 name: BosMon
-version: v0.3.7
+version: v0.3.8
 slug: bosmon
 description: BosMon ist ein innovatives Programm zum Dekodieren von ZVEI, FMS und Pocsag Telegrammen.
 url: https://github.com/timniklas/addon-bosmon
@@ -16,3 +16,13 @@ options:
 schema:
   key_name: str
   key_serial: str
+ports:
+  4001/tcp: null
+  4002/tcp: null
+  4003/tcp: null
+  4004/tcp: null
+ports_description:
+  4001/tcp: ingress port 1 (optional)
+  4002/tcp: ingress port 2 (optional)
+  4003/tcp: ingress port 3 (optional)
+  4004/tcp: ingress port 4 (optional)
