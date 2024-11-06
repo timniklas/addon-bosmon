@@ -54,7 +54,6 @@ jobs:
           context: ./bosmon
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          outputs: type=image,compression=gzip,push=true
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
