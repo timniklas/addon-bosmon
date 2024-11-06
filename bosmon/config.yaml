@@ -19,6 +19,8 @@ schema:
 ports:
   80/tcp: null
   8099/tcp: null
+  5901/tcp: null
 ports_description:
-  80/tcp: Webserver (optional)
-  8099/tcp: NoVNC without authentication (danger!)
+  80/tcp: BosMon Webserver
+  8099/tcp: HTTP without authentication (danger!)
+  5901/tcp: VNC without authentication (danger!)
