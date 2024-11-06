@@ -9,7 +9,7 @@ vncserver -geometry $RESOLUTION -SecurityTypes None &
 
 echo "VNC server started at $RESOLUTION! ^-^"
 
-echo "Link persistent storage..."
+echo "Linking persistent storage..."
 mkdir -p "/root/.wine/drive_c/users/root/AppData/Roaming"
 ln -sT /data/appdata "/root/.wine/drive_c/users/root/AppData/Roaming/BosMon"
 mkdir -p "/root/.wine/drive_c/Program Files"
