@@ -21,6 +21,7 @@ RUN apt-get install -y \
     curl \
     xvfb \
     xautomation \
+    cabextract \
     jq
 
 # update ca certificates
