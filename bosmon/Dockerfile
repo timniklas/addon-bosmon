@@ -79,5 +79,3 @@ COPY startup.sh /root/.vnc/xstartup
 RUN chmod +x /root/.vnc/xstartup
 
 ENTRYPOINT ["/app/start-vnc.sh"]
-
-HEALTHCHECK CMD pgrep -f "xstartup" || exit 1
