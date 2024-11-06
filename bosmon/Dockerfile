@@ -65,13 +65,16 @@ WORKDIR /app
 
 # Copy Bosmon
 RUN wget -O bosmon_setup.exe https://www.bosmon.de/files/bosmon_setup_2023_11.exe
-COPY activate_bosmon.sh activate_bosmon.sh
-RUN chmod +x activate_bosmon.sh
+COPY install_bosmon.sh install_bosmon.sh
+RUN chmod +x install_bosmon.sh \
+    && xvfb-run ./install_bosmon.sh \
+    && rm -f install_bosmon.sh \
+    && rm -f bosmon_setup.exe
 
 # Copy a script to start the VNC server
 COPY start-vnc.sh start-vnc.sh
 RUN chmod +x start-vnc.sh
-COPY startup.sh /root/.vnc/xstartup
+COPY xstartup.sh /root/.vnc/xstartup
 RUN chmod +x /root/.vnc/xstartup
 
 HEALTHCHECK --interval=5s \
