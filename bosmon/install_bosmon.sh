@@ -1,7 +1,9 @@
-#!/usr/bin/env bashio
+#!/bin/bash
 
-KEY_NAME=$(bashio::config 'key_name')
-KEY_SERIAL=$(bashio::config 'key_serial')
+CONFIG_PATH=/data/options.json
+
+KEY_NAME=$(jq --raw-output '.key_name // empty' $CONFIG_PATH)
+KEY_SERIAL=$(jq --raw-output '.key_serial // empty' $CONFIG_PATH)
 
 # Wait for the notification daemon to finish launching
 while ! pgrep -f "Activate.exe" > /dev/null; do
