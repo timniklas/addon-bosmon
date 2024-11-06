@@ -7,11 +7,9 @@ echo "127.0.1.1\t$HOSTNAME" >> /etc/hosts
 echo "Linking persistent storage..."
 mkdir -p /data/appdata
 mkdir -p "/root/.wine/drive_c/users/root/AppData/Roaming"
-rm -rf "/root/.wine/drive_c/users/root/AppData/Roaming/BosMon"
 ln -sT /data/appdata "/root/.wine/drive_c/users/root/AppData/Roaming/BosMon"
 mkdir -p /data/program
 mkdir -p "/root/.wine/drive_c/Program Files"
-rm -rf "/root/.wine/drive_c/Program Files/BosMon"
 ln -sT /data/program "/root/.wine/drive_c/Program Files/BosMon"
 
 echo "Starting VNC server at $RESOLUTION..."
