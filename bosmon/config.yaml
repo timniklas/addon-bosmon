@@ -11,11 +11,11 @@ panel_icon: mdi:alarm-light
 arch:
 - amd64
 options:
-  key_name: Tim Tester2
-  key_serial: YA1QWI7JBBBEE572BPDC6RTAM
+  display_resolution: 1280x720
 schema:
   key_name: str
   key_serial: str
+  display_resolution: str
 ports:
   80/tcp: null
 ports_description:
