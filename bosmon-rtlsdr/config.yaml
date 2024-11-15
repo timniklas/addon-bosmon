@@ -12,9 +12,9 @@ options:
   gain: 100
 schema:
   device: "device"
-  frequency: "match(\d+\.\d+M)"
-  gain: "float"
+  frequency: "float"
+  gain: "int"
   bosmon_url: "url"
-  bosmon_username: "match(\S+)"
+  bosmon_username: "match([a-zA-Z0-9_]+)"
   bosmon_password: "password"
-  bosmon_endpoint: "match(\S+)"
+  bosmon_endpoint: "match([a-zA-Z0-9_]+)"
