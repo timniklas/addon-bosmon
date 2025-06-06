@@ -63,7 +63,7 @@ RUN touch /root/.Xauthority
 WORKDIR /app
 
 # Copy Bosmon
-RUN wget -O bosmon_setup.exe https://www.bosmon.de/files/bosmon_setup_2023_12_1.exe
+RUN wget -O bosmon_setup.exe https://www.bosmon.de/files/bosmon_setup_2023_14.exe
 COPY install_bosmon.sh install_bosmon.sh
 RUN chmod +x install_bosmon.sh \
     && xvfb-run ./install_bosmon.sh \
