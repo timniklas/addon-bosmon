@@ -3,7 +3,7 @@
 CONFIG_PATH=/data/options.json
 RESOLUTION=$(jq --raw-output '.display_resolution // empty' $CONFIG_PATH)
 
-x-window-manager &
+xfwm4 &
 
 while true
 do
