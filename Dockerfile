@@ -13,6 +13,7 @@ RUN apt-get update
 RUN apt-get install -y \
     xfce4 \
     xfce4-goodies \
+    xfwm4 \
     tigervnc-standalone-server \
     tigervnc-xorg-extension \
     dbus-x11 \
