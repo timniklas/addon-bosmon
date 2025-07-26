@@ -11,7 +11,8 @@ echo "127.0.1.1\t$HOSTNAME" >> /etc/hosts
 
 echo "Linking persistent storage..."
 mkdir -p /data/appdata
-ln -sT /data/appdata "/root/.wine/drive_c/users/root/AppData/Roaming/BosMon"
+ln -sT /data/appdata /root/.wine/drive_c/users/root/AppData/Roaming/BosMon
+ln -sT /data/License.bmkey /root/.wine/drive_c/Program\ Files/BosMon/license.bmkey
 
 echo "Activating License..."
 wine reg add "HKEY_LOCAL_MACHINE\SOFTWARE\BosMon" /v key /t REG_SZ /d "$KEY_SERIAL"
