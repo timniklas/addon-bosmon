@@ -7,6 +7,7 @@ xfwm4 &
 
 while true
 do
-    wine /root/.wine/drive_c/Program\ Files/BosMon/BosMon.exe
+    #wine /root/.wine/drive_c/Program\ Files/BosMon/BosMon.exe
+    wine explorer /desktop=BosMon,$RESOLUTION /root/.wine/drive_c/Program\ Files/BosMon/BosMon.exe
     sleep 1
 done
