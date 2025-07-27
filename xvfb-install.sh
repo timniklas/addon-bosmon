@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Install webview
 wget -O webview_setup.exe https://go.microsoft.com/fwlink/p/?LinkId=2124703
 wine webview_setup.exe && rm webview_setup.exe
