@@ -33,7 +33,7 @@ RUN dpkg --add-architecture i386 && mkdir -pm755 /etc/apt/keyrings \
     && wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key \
     && wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources \
     && apt-get update \
-    && apt-get install --install-recommends winehq-devel -y
+    && apt-get install --install-recommends winehq-stable -y
 
 # Install .NET
 RUN wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks && chmod +x winetricks
@@ -45,6 +45,13 @@ RUN WINEARCH=win32 ./winetricks -q fontfix
 # Install webview
 RUN wget -O webview_setup.exe https://go.microsoft.com/fwlink/p/?LinkId=2124703
 RUN xvfb-run wine webview_setup.exe && rm webview_setup.exe
+
+# Install TTS
+RUN xvfb-run wget https://download.microsoft.com/download/A/6/4/A64012D6-D56F-4E58-85E3-531E56ABC0E6/x86_SpeechPlatformRuntime/SpeechPlatformRuntime.msi
+RUN xvfb-run wine msiexec /i SpeechPlatformRuntime.msi
+RUN xvfb-run wget https://download.microsoft.com/download/4/0/D/40D6347A-AFA5-417D-A9BB-173D937BEED4/MSSpeech_TTS_de-DE_Hedda.msi
+RUN xvfb-run wine msiexec /i MSSpeech_TTS_de-DE_Hedda.msi
+RUN WINEARCH=win32 ./winetricks msxml6
 
 # Install novnc
 RUN apt-get -y install novnc python3-websockify
